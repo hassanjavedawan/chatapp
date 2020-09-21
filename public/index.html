@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Now</title>
+  <link rel="shortcut icon" href="images/Chat-Logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
+  <script>
+    function openApp() {
+      setTimeout(function () {
+        let openApp = document.getElementById('openApp').style.display = "none";
+
+      }, 1000);
+    };
+    var firebaseConfig = {
+      apiKey: "AIzaSyAjLEXeAYzwwoz8FJMOVmUsTbyxIC5TTOY",
+      authDomain: "chatnowapp12.firebaseapp.com",
+      databaseURL: "https://chatnowapp12.firebaseio.com",
+      projectId: "chatnowapp12",
+      storageBucket: "chatnowapp12.appspot.com",
+      messagingSenderId: "693369068345",
+      appId: "1:693369068345:web:0ba785222d8e6f9b1726e8",
+      measurementId: "G-6FVNJZ0LQJ"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+</head>
+
+<body onload="openApp()">
+  <!-- Open App  -->
+  <div class="openApp" id="openApp">
+    <img width="300px" height="300px" src="images/Chat-Logo.png" alt="logo" />
+  </div>
+  </div>
+
+  <!-- nav -->
+  <div class="sticky-top">
+    <nav class="navbar navbar-dark">
+      <a class="navbar-brand" href="#">
+        <img src="images/Chat-Logo.png" width="40" height="40" class="d-inline-block align-top" alt="logo">
+        Chat Now
+      </a>
+    </nav>
+  </div>
+
+
+
+  <!-- Welcome -->
+  <div class="welcome" id="welcome">
+    <h3 class="heading mt-5">Welcome to Chat Now</h3>
+    <img class="mt-5" src="images/Chat-Logo.png" width="80" height="80" alt="logo"><br>
+    <p class="text-white mt-5">Agree and continue to My Chat Now online app</p>
+    <button type="button" onclick="agree()" class="btn btn-info mt-2" data-toggle="modal"
+      data-target="#exampleModalCenter">AGREE AND CONTINUE</button>
+  </div>
+  <!-- Modal -->
+  <div>
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body" id="modalArea">
+            <div class="made-by" id="made-by">
+              <p>Developer "Hassan Javed"</p>
+            </div>
+            <!-- error message -->
+            <p id="errorMassage"> </p>
+
+            <!-- login area -->
+            <div class="login mt-5" id="loginArea">
+              <h3 class=" heading text-white mt-2">Chat Now </h3>
+              <img class="mt-2" src="images/Chat-Logo.png" width="60" height="60" alt="logo"><br>
+              <h5 class="h5 mt-3">Login Your Account</h5>
+              <input class="form" type="email" name="email" id="login_email" placeholder="Email" /><br>
+              <input class="form" type="password" name="password" id="login_password" placeholder="Pasword" /> <br>
+              <button type="button" onclick="login()" class="btn btn-info mt-2"  > Login <i class="fa fa-sign-in"
+                  aria-hidden="true"></i> </button>
+              <p class="mt2"> If you use first time first create an account </p>
+              <p class="mt-2">Create account new user : <span id="registerFild" onclick="registerFild()">Rigister</span>
+              </p>
+
+            </div>
+            <!-- create account new user -->
+            <div class="login mt-5" id="regis" style="display: none;">
+              <h3 class=" heading text-white mt-2">Chat Now </h3>
+              <img class="mt-2" src="images/Chat-Logo.png" width="60" height="60" alt="logo"><br>
+              <h5 class="mt-3">Create your account</h5>
+              <input class="form" type="text" name="fullName" id="fullName" placeholder="fullName" /><br>
+              <input class="form" type="email" placeholder="Email" id="email" />
+              <input class="form" type="password" placeholder="Password" id="password" />
+              <button type="button" class="btn btn-success" onclick="register()" >Create account</button>
+              <p class="mt-2">Login your account : <span id="loginFild" onclick="loginFild()">Login now!</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- message tone -->
+  <Audio id="tone">
+    <source src="ringtone/iphone-10-sms-ringtone.mp3" type="audio/mp3">
+  </Audio>
+  <!-- Conversation -->
+  <div style="float: right;" id="logout" onclick="logOut()">Logout <i class="fa fa-sign-out" aria-hidden="true"></i>
+  </div>
+
+  <div class=".container-sm" id="chatArea">
+    <div id="chat_area">
+
+      <div class="chat_area_header">
+        <div id="displayName"> </div>
+      </div>
+
+      <div class="chat">
+        <ul id="messages"> </ul>
+      </div>
+      <div class="add_massage">
+        <input class="inpt" type="text" id="myMessage" placeholder="Type your massage........" />
+        <button class="butn" type="button" onclick="send()"><i class="fa fa-paper-plane-o"
+            aria-hidden="true"></i></button>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- water mark -->
+  <div class="logo" id="logo">
+    <img src="images/Chat-Logo.png" width="50" height="50" alt="logo">
+  </div>
+
+  <script src="app.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

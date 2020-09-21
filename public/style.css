@@ -1,0 +1,306 @@
+@font-face{
+    font-family: myfont;
+    src: url(fonts/Solway/Solway-Medium.ttf);
+}
+*{
+font-family: myfont;
+}
+body{
+    width: 100%;
+    height: 100vh;
+  background-image: url(images/main\ bg.jpg);
+  background-size: cover;
+
+}
+.openApp{
+    margin: 0 auto;
+    height:100vh !important;
+    background-color:cadetblue;
+    align-items: center;
+    justify-content: center;
+    width: 100% !important;
+    text-align: center;
+    z-index: 9999;
+    display: flex;
+    
+}
+.navbar{
+    background-color: cadetblue;
+    
+}
+.navbar-brand{
+    font-size: 30px !important;
+}
+.welcome{
+    text-align: center;
+    margin:0 auto;
+}
+.heading{
+    color: white;
+    text-shadow: 2px 2px 2px rgb(32, 228, 235);
+}
+.h5{
+    color: white;
+}
+
+.modal-content{
+    margin:  0 auto;
+    width: 400px;
+    background-color: transparent;
+    box-shadow: -5px 5px 2px cadetblue, 5px -5px 2px whitesmoke ;
+    border: none !important;
+    margin-top: 0px !important;
+    border-radius: 20px !important;
+}
+.modal-body{
+   margin-top: 0px !important;
+   background-image: url(images/main\ bg.jpg);
+   background-size: cover;
+   border-radius: 20px !important;
+
+
+}
+.modelSkip{
+    text-align: center;
+    color: white;
+
+}
+.made-by{
+    margin: 0 auto;
+    border-radius: 20px;
+    text-align: center;
+    font-size: larger;
+    margin-top :20px;
+    background-color: cadetblue;
+    /* background-image: linear-gradient(0deg, rgba(228, 225, 219, 1), rgba(105, 183, 202, 0.972)); */
+    color: white;
+}
+.logo{
+    position: fixed;
+    bottom: 50px;
+    right: 30px;
+}
+.login{
+    color: white;
+    display: none;
+    text-align: center;
+    width: 300px;
+    height: 400px;
+    margin: 0 auto;
+    box-shadow:-5px 5px 2px whitesmoke, 5px -5px 2px cadetblue;
+    border-radius: 10px;
+}
+.form{
+    margin-top: 10px;
+    background-color: transparent;
+    color: black;
+    border: 1px solid gray;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 5px 5px 3px gray;
+    outline: none;
+    
+}
+.btn{
+    border-radius: 10px;
+    margin-top: 20px !important;
+}
+
+#registerFild{
+    color: turquoise !important;
+    cursor: pointer;
+}
+#loginFild{
+    color: turquoise !important;
+    cursor: pointer;
+}
+#errorMassage{
+    display: none;
+    margin: 0 auto;
+    background-color: red;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+#chatArea{
+    display: none;
+}
+#chat_area{
+
+    margin: 0 auto;
+    border: 5px solid white;
+    border-bottom: none;
+    background-image: linear-gradient(0deg, rgba(228, 225, 219, 1), rgba(105, 183, 202, 0.972));
+    height:88vh ;
+    width: 60% ;
+}
+.chat_area_header{
+    width: 100%;
+    height: 55px;
+    background-color:cadetblue ;
+    color: white;
+    
+}
+#displayName{
+    font-size: 22px;
+    color: white;
+}
+.add_massage{
+    display: flex;
+    background-color: whitesmoke;
+    position: fixed;
+    bottom: 0px;
+    width:59%;
+    
+}
+.inpt{
+    display: flex;
+    border: 1px solid gray;
+    border-radius: 20px;
+    width: 90%;
+    height: 50px !important;
+    background-color: white;
+    box-shadow: 5px 5px 3px gray;
+    outline: none;
+    height: 50px;
+    width: 100%;
+  
+}
+.butn{
+    display: flex;
+    cursor: pointer;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    outline: none !important;
+    background-color: cadetblue;
+    border-right-style: hidden;
+}
+.butn:hover{
+    background-image: linear-gradient(0deg, rgba(228, 225, 219, 1), rgba(105, 183, 202, 0.972));
+    
+}
+.fa-paper-plane-o{
+    text-align: center;
+    padding-top: 5px;
+    font-size: 30px !important;
+    outline: none !important;
+    font-weight: bolder;
+    color: white;
+}
+.chat {
+    width: 100%;
+    height: 500px;
+    border-top: none;
+    box-shadow: 0px 0px 25px #0000002d;
+    overflow: hidden;
+    position: relative;
+}
+ul {
+    position: absolute;
+    width: 100%;
+    height: 455px;
+    list-style: none;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+
+ul li {
+    padding: 10px;
+    max-width: 60%;
+    min-width: 20%;
+    font-size: 14px;
+    word-wrap: break-word;
+    position: relative;
+    margin: 5px 0;
+    box-shadow: 2px 3px 20px #00000034;
+    line-height: 20px;
+}
+.profileName {
+    padding: 0 0 2px 0px;
+    width: 100%;
+    min-height: 20px;
+    border-bottom: .5px solid rgba(0, 0, 0, 0.123);
+    font-size: 12px;
+    color: green;
+    margin-bottom: 5px;
+}
+.other{
+    float: left ;
+    list-style-type: none;
+    background-color: whitesmoke;
+    border-radius: 15px;
+    margin-top: 14px !important;
+    color: black;
+}
+.me{
+    align-self: flex-end;
+    list-style: none;
+    background-color: turquoise;
+    border-radius: 15px;
+    margin-top: 14px !important;
+    color: black;
+}
+
+.delbtn{
+    float: right !important;
+    border-radius: 10px;
+    margin-right: -8px;
+    background-color: rgb(202, 34, 34);
+    color: white;
+    cursor: pointer;
+}
+#logout{
+    display: none;
+    cursor: pointer;
+    border-radius: 15px;
+    padding-left: 5px;
+    font-size: 20px;
+    width:110px ;
+    background-color: red;
+    border: 2px solid turquoise;
+    color: white;
+
+}
+#logout:hover{
+    background-color: rgb(187, 65, 65);
+}
+
+@media only screen and (max-width: 600px){
+   
+    .logo{
+        bottom: 20px;
+    }
+    #chat_area{
+        display: block;
+        margin-left: 0px;
+        width: 100% !important;
+    }
+    .chat_area_header{
+        width: 100%;
+        height: 62;
+        font-size: 20px;
+    }
+    ul {
+        height: 420px;
+
+    }
+    ul li{
+        padding: 7px;
+        max-width: 75%;
+        min-width: 40%;
+        margin: 5px 0;
+        line-height: 17px;
+    }
+    .add_massage{
+        width: 360px;
+    }
+    .inpt{
+        height: 50px;
+        width: 90%;
+    }
+      
+}
